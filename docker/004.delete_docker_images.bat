@@ -1,0 +1,11 @@
+docker rmi frontend-portal:1.0
+docker rmi frontend-admin:1.0
+docker rmi reserve-request-service:1.0
+docker rmi reserve-item-service:1.0
+docker rmi reserve-check-service:1.0
+docker rmi board-service:1.0
+docker rmi portal-service:1.0
+docker rmi user-service:1.0
+docker rmi apigateway:1.0
+docker rmi config:1.0
+docker rmi discovery:1.0

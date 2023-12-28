@@ -1,0 +1,34 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  profiles:
+    active: native,default # native file repository
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: ${search.location:file:///d:/spring-cloud/invako_msa/config} # Windows
+#           search-locations: file://${user.home}/workspace/egovframe-msa-edu/config # MacOS
+  rabbitmq:
+    host: ${rabbitmq.hostname:localhost}
+    port: 5672
+    username: guest
+    password: guest
+
+# config server actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
+
+        
+# http://127.0.0.1:8888/application/native (apigateway 환경설정파일)
+# http://127.0.0.1:8888/board-service/native (보드서비스 환경설정파일)
+# http://127.0.0.1:8888/board-service-test/native (보드서비스 테스트 환경설정파일)
+
+# 환경설정 변경후 전체 서비스  rabbit mq를 이영하여 전체 반영
+# http://localhost:8888/actuator/busrefresh
